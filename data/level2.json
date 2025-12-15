@@ -1,0 +1,19 @@
+[
+  { "id": "l2_001", "de": "kompetent", "en": "competent", "example": "She is competent in her work." },
+  { "id": "l2_002", "de": "kooperativ", "en": "co-operative", "example": "The team is very co-operative." },
+  { "id": "l2_003", "de": "vernünftig", "en": "reasonable", "example": "Try to be reasonable." },
+  { "id": "l2_004", "de": "zuverlässig", "en": "reliable", "example": "He is reliable." },
+  { "id": "l2_005", "de": "verhindern", "en": "to prevent", "example": "This tool prevents damage." },
+  { "id": "l2_006", "de": "sicherstellen", "en": "to ensure", "example": "Ensure that everything is safe." },
+  { "id": "l2_007", "de": "der Zweck", "en": "purpose", "example": "What is the purpose of this task?" },
+  { "id": "l2_008", "de": "die Anforderung", "en": "requirement", "example": "These are the job requirements." },
+  { "id": "l2_009", "de": "geeignet", "en": "suited", "example": "Why are you suited to this job?" },
+  { "id": "l2_010", "de": "nicht fähig", "en": "unable", "example": "She was unable to finish the task." },
+  { "id": "l2_011", "de": "anstrengend", "en": "tiring", "example": "The work is tiring." },
+  { "id": "l2_012", "de": "der Verlust", "en": "loss", "example": "The accident caused a loss." },
+  { "id": "l2_013", "de": "die Anleitung", "en": "instruction", "example": "Read the instructions carefully." },
+  { "id": "l2_014", "de": "der Muskel", "en": "muscle", "example": "Strong muscles are important." },
+  { "id": "l2_015", "de": "die Schwerkraft", "en": "gravity", "example": "Because of gravity, things fall down." },
+  { "id": "l2_016", "de": "sich spezialisieren auf", "en": "to specialise in", "example": "We specialise in electronics." },
+  { "id": "l2_017", "de": "der Arbeitgeber", "en": "employer", "example": "Who is your employer?" }
+]

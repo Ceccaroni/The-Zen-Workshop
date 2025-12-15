@@ -1,0 +1,203 @@
+:root {
+    /* Farbpalette: Neurodiversitäts-freundlich (Low Contrast Glare) */
+    --bg-color: #F7F5F3;       /* Creme/Off-White */
+    --card-bg: #FFFFFF;
+    --text-main: #2D3748;      /* Weiches Schwarz */
+    --text-muted: #718096;
+    
+    --primary: #4A7C59;        /* Salbei-Grün (Ruhe) */
+    --primary-hover: #3A6346;
+    
+    --focus-ring: #5C6B9C;     /* Indigo für Fokus */
+    
+    /* Ratings Farben (Pastell, nicht aggressiv) */
+    --rate-1: #E07A5F; /* Terracotta */
+    --rate-2: #F2CC8F;
+    --rate-3: #F4F1DE; 
+    --rate-4: #81B29A;
+    --rate-5: #3D5A80; /* Deep Blue */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Lexend', sans-serif; /* Wissenschaftlich optimiert für Lesefluss */
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Kein Scrollen der ganzen Seite */
+}
+
+/* Header */
+.app-header {
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+}
+
+.deck-selector {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: inherit;
+    background: var(--card-bg);
+    color: var(--text-main);
+    font-size: 1rem;
+}
+
+.progress-container {
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+/* Main Stage */
+.card-stage {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Die Karte */
+.card {
+    background: var(--card-bg);
+    width: 100%;
+    min-height: 300px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05); /* Weicher Schatten */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+
+.word-german {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--text-main);
+}
+
+.hidden {
+    display: none !important;
+    opacity: 0;
+}
+
+.english-area {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.word-english {
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.example-sentence {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.audio-btn {
+    background: none;
+    border: 2px solid var(--bg-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.audio-btn:hover { background: var(--bg-color); }
+
+/* Controls */
+.controls {
+    width: 100%;
+    height: 80px; /* Fester Platz, damit nichts springt */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(74, 124, 89, 0.3);
+    transition: transform 0.1s;
+}
+
+.btn-primary:active { transform: scale(0.98); }
+
+/* Rating Buttons */
+.rating-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.rating-label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.rating-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.rate-btn {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: #eee;
+    color: var(--text-main);
+    transition: transform 0.1s, background 0.2s;
+}
+
+.rate-btn:hover { transform: translateY(-3px); }
+.rate-btn:active { transform: scale(0.95); }
+
+/* Farb-Feedback für Buttons */
+.rate-btn[data-rating="1"]:hover { background: var(--rate-1); color: white; }
+.rate-btn[data-rating="2"]:hover { background: var(--rate-2); }
+.rate-btn[data-rating="3"]:hover { background: var(--rate-3); }
+.rate-btn[data-rating="4"]:hover { background: var(--rate-4); color: white; }
+.rate-btn[data-rating="5"]:hover { background: var(--rate-5); color: white; }

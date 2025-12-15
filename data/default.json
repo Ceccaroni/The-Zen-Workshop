@@ -1,0 +1,32 @@
+[
+  {
+    "id": "d2_001",
+    "de": "der Astronaut",
+    "en": "astronaut",
+    "example": "The astronaut travels into space."
+  },
+  {
+    "id": "d2_002",
+    "de": "der Weltraum",
+    "en": "space",
+    "example": "There is no air in space."
+  },
+  {
+    "id": "d2_003",
+    "de": "atmen",
+    "en": "to breathe",
+    "example": "Remember to breathe slowly."
+  },
+  {
+    "id": "d2_004",
+    "de": "der Behälter",
+    "en": "container",
+    "example": "Tools are stored in containers."
+  },
+  {
+    "id": "d2_005",
+    "de": "der Schlafsack",
+    "en": "sleeping bag",
+    "example": "I sleep in a sleeping bag."
+  }
+]

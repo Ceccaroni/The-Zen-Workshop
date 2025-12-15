@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fokus Vokabeltrainer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+    <header class="app-header">
+        <select id="deckSelector" class="deck-selector">
+            <option value="level1">Level 1: Werkstatt & Beruf</option>
+            <option value="level2">Level 2: Abstrakt & Konzepte</option>
+            <option value="default">Thema: Space</option>
+        </select>
+        <div class="progress-container">
+            <span id="progressText">0/0</span>
+        </div>
+    </header>
+
+    <main class="card-stage">
+        <div id="flashcard" class="card">
+            <div class="card-content">
+                <h2 id="wordGerman" class="word-german">Laden...</h2>
+                
+                <div id="englishArea" class="english-area hidden">
+                    <h1 id="wordEnglish" class="word-english">-</h1>
+                    <p id="exampleSentence" class="example-sentence">-</p>
+                    <button id="audioBtn" class="audio-btn" aria-label="Vorlesen">
+                        🔊
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="revealBtn" class="btn-primary">Antwort zeigen</button>
+            
+            <div id="ratingArea" class="rating-area hidden">
+                <p class="rating-label">Wie gut gewusst?</p>
+                <div class="rating-buttons">
+                    <button class="rate-btn" data-rating="1">1</button>
+                    <button class="rate-btn" data-rating="2">2</button>
+                    <button class="rate-btn" data-rating="3">3</button>
+                    <button class="rate-btn" data-rating="4">4</button>
+                    <button class="rate-btn" data-rating="5">5</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>
