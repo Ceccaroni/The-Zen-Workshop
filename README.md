@@ -48,3 +48,52 @@ Das Projekt basiert auf reinem **Vanilla Web Standards** (HTML5, CSS3, ES6 JavaS
     ├── level1.json
     ├── level2.json
     └── default.json
+
+---
+
+## Installation & Nutzung
+A. Via Web (Empfohlen für Schüler)
+Das Projekt ist für GitHub Pages optimiert.
+
+Repository klonen/forken.
+
+In den GitHub Settings unter "Pages" den main Branch aktivieren.
+
+Link an Schüler verteilen.
+
+B. Lokal (Entwicklung)
+Da moderne Browser lokale JSON-Dateien (file://) aus Sicherheitsgründen blockieren (CORS Policy), muss ein lokaler Server verwendet werden:
+
+Ordner in VS Code öffnen.
+
+Extension "Live Server" installieren.
+
+Klicke auf "Go Live".
+
+---
+
+## Datenformat (JSON)
+Neue Vokabeln können einfach in den JSON-Dateien im Ordner /data ergänzt werden.
+
+Format:
+
+JSON
+
+[
+  {
+    "id": "l1_hammer",
+    "de": "der Hammer",
+    "en": "hammer",
+    "example": "Use the hammer to hit the nail."
+  }
+]
+id: Muss einzigartig sein.
+
+example: Kurzer, prägnanter Satz.
+
+---
+
+## Lizenz & Datenschutz
+Lizenz: MIT License (Open Source).
+
+Datenschutz: Dieses Tool nutzt keine Cookies und kein Tracking. Alle Lernstände verbleiben im localStorage des Endgeräts.
