@@ -10,28 +10,34 @@
     
     --focus-ring: #5C6B9C;     /* Indigo für Fokus */
     
-    /* Ratings Farben (Pastell, nicht aggressiv) */
-    --rate-1: #E07A5F; /* Terracotta */
+    /* Ratings Farben */
+    --rate-1: #E07A5F;
     --rate-2: #F2CC8F;
     --rate-3: #F4F1DE; 
     --rate-4: #81B29A;
-    --rate-5: #3D5A80; /* Deep Blue */
+    --rate-5: #3D5A80;
 }
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    /* Verhindert "Tap Highlight" Farbe auf Mobile beim Klicken */
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
-    font-family: 'Lexend', sans-serif; /* Wissenschaftlich optimiert für Lesefluss */
+    font-family: 'Lexend', sans-serif;
     background-color: var(--bg-color);
     color: var(--text-main);
+    
+    /* UPDATE: dvh passt sich an Mobile-Browser-Leisten an */
     height: 100vh;
+    height: 100dvh; 
+    
     display: flex;
     flex-direction: column;
-    overflow: hidden; /* Kein Scrollen der ganzen Seite */
+    overflow: hidden; /* WICHTIG: Scrollen komplett deaktiviert */
 }
 
 /* Header */
@@ -40,7 +46,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: transparent;
+    flex-shrink: 0; /* Header darf nicht schrumpfen */
+    height: 60px;
 }
 
 .deck-selector {
@@ -51,41 +58,57 @@ body {
     background: var(--card-bg);
     color: var(--text-main);
     font-size: 1rem;
+    max-width: 200px; /* Damit er auf Mobile nicht alles verdeckt */
 }
 
 .progress-container {
     font-weight: 500;
     color: var(--text-muted);
+    font-size: 0.9rem;
+    white-space: nowrap;
+    margin-left: 10px;
 }
 
 /* Main Stage */
 .card-stage {
-    flex: 1;
+    flex: 1; /* Nimmt den restlichen Platz ein */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; /* Zentriert vertikal */
     align-items: center;
     padding: 1rem;
+    width: 100%;
     max-width: 600px;
     margin: 0 auto;
-    width: 100%;
+    overflow: hidden; /* Sicherheitshalber */
 }
 
 /* Die Karte */
 .card {
     background: var(--card-bg);
     width: 100%;
-    min-height: 300px;
+    
+    /* UPDATE: Flexibles Design statt fester Höhe */
+    flex: 1; 
+    max-height: 500px; /* Nicht zu hoch auf Desktop */
+    min-height: 200px;
+    
     border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05); /* Weicher Schatten */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    transition: all 0.3s ease;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem; /* Abstand zu den Buttons */
+    
+    /* Wichtig für Mobile: Wenn Text zu lang, scrollt NUR die Karte intern */
+    overflow-y: auto; 
+}
+
+.card-content {
+    width: 100%;
 }
 
 .word-german {
@@ -93,6 +116,7 @@ body {
     font-weight: 600;
     margin-bottom: 1.5rem;
     color: var(--text-main);
+    line-height: 1.2;
 }
 
 .hidden {
@@ -110,17 +134,18 @@ body {
 }
 
 .word-english {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-weight: 500;
     color: var(--primary);
     margin-bottom: 0.5rem;
+    line-height: 1.2;
 }
 
 .example-sentence {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--text-muted);
     font-style: italic;
-    line-height: 1.6;
+    line-height: 1.4;
     margin-bottom: 1rem;
 }
 
@@ -128,34 +153,42 @@ body {
     background: none;
     border: 2px solid var(--bg-color);
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 44px; /* Größere Touch-Area */
+    height: 44px;
     font-size: 1.2rem;
     cursor: pointer;
     transition: background 0.2s;
+    display: flex; /* Zentrierung Icon */
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; /* Zentriert Button */
 }
 .audio-btn:hover { background: var(--bg-color); }
 
 /* Controls */
 .controls {
     width: 100%;
-    height: 80px; /* Fester Platz, damit nichts springt */
+    /* UPDATE: Feste Höhe reservieren, aber flexibel bleiben */
+    min-height: 80px; 
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Buttons eher oben im Container */
+    flex-shrink: 0; /* Darf nicht gequetscht werden */
+    padding-bottom: 10px;
 }
 
 .btn-primary {
     background-color: var(--primary);
     color: white;
     border: none;
-    padding: 1rem 3rem;
+    padding: 1rem 2rem; /* Etwas kompakter */
     font-size: 1.2rem;
     font-weight: 500;
     border-radius: 50px;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(74, 124, 89, 0.3);
-    transition: transform 0.1s;
+    width: 100%; /* Auf Mobile volle Breite angenehmer */
+    max-width: 300px;
 }
 
 .btn-primary:active { transform: scale(0.98); }
@@ -165,23 +198,27 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
     animation: fadeIn 0.3s ease;
 }
 
 .rating-label {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: var(--text-muted);
     margin-bottom: 0.5rem;
 }
 
 .rating-buttons {
     display: flex;
-    gap: 10px;
+    gap: 8px; /* Enger für kleine Screens */
+    justify-content: center;
+    width: 100%;
 }
 
 .rate-btn {
-    width: 50px;
-    height: 50px;
+    flex: 1; /* Buttons teilen sich Platz gleichmäßig auf */
+    max-width: 60px;
+    height: 50px; /* Hohe Touch-Target */
     border: none;
     border-radius: 12px;
     font-size: 1.2rem;
@@ -189,15 +226,34 @@ body {
     cursor: pointer;
     background: #eee;
     color: var(--text-main);
-    transition: transform 0.1s, background 0.2s;
+    transition: transform 0.1s;
 }
 
-.rate-btn:hover { transform: translateY(-3px); }
 .rate-btn:active { transform: scale(0.95); }
 
-/* Farb-Feedback für Buttons */
+/* Feedback Farben */
 .rate-btn[data-rating="1"]:hover { background: var(--rate-1); color: white; }
 .rate-btn[data-rating="2"]:hover { background: var(--rate-2); }
 .rate-btn[data-rating="3"]:hover { background: var(--rate-3); }
 .rate-btn[data-rating="4"]:hover { background: var(--rate-4); color: white; }
 .rate-btn[data-rating="5"]:hover { background: var(--rate-5); color: white; }
+
+/* --- MOBILE OPTIMIERUNGEN (iPhone/Android) --- */
+@media (max-height: 700px) {
+    /* Wenn der Bildschirm niedrig ist (Querformat oder kleine Handys) */
+    .app-header {
+        padding: 0.5rem 1rem;
+        height: 50px;
+    }
+    
+    .word-german { font-size: 1.5rem; margin-bottom: 1rem; }
+    .word-english { font-size: 1.8rem; }
+    
+    .card {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .btn-primary { padding: 0.8rem 2rem; }
+    .rate-btn { height: 45px; }
+}
