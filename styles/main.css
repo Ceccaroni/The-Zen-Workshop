@@ -239,21 +239,61 @@ body {
 .rate-btn[data-rating="5"]:hover { background: var(--rate-5); color: white; }
 
 /* --- MOBILE OPTIMIERUNGEN (iPhone/Android) --- */
-@media (max-height: 700px) {
-    /* Wenn der Bildschirm niedrig ist (Querformat oder kleine Handys) */
+@media (max-width: 768px) {
+    
+    /* 1. Header kompakter machen */
     .app-header {
-        padding: 0.5rem 1rem;
         height: 50px;
+        padding: 0.25rem 1rem;
+    }
+
+    /* 2. Schriftgrößen reduzieren, damit lange Wörter nicht den Rahmen sprengen */
+    .word-german { 
+        font-size: 1.6rem; 
+        margin-bottom: 0.5rem; /* Weniger Abstand zum englischen Wort */
     }
     
-    .word-german { font-size: 1.5rem; margin-bottom: 1rem; }
-    .word-english { font-size: 1.8rem; }
+    .word-english { 
+        font-size: 2rem; 
+        margin-bottom: 0.5rem;
+    }
     
+    .example-sentence {
+        font-size: 1rem;
+        line-height: 1.3;
+        margin-bottom: 0.8rem;
+    }
+
+    /* 3. Die Karte selbst kompakter gestalten */
     .card {
         padding: 1rem;
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem; /* Weniger Abstand zu den Buttons! */
+        min-height: auto; /* Karte darf schrumpfen wenn wenig Text da ist */
+    }
+
+    /* 4. Buttons nach oben holen */
+    .controls {
+        min-height: auto;
+        padding-top: 0;
+        /* WICHTIG: Drückt die Buttons weg vom unteren Browser-Rand (Home Bar) */
+        padding-bottom: env(safe-area-inset-bottom); 
+        margin-bottom: 10px; /* Extra Sicherheitsabstand zum Rand */
+    }
+
+    .btn-primary { 
+        padding: 0.8rem 1.5rem; 
+        font-size: 1.1rem;
     }
     
-    .btn-primary { padding: 0.8rem 2rem; }
-    .rate-btn { height: 45px; }
+    .rate-btn { 
+        height: 45px; /* Etwas flacher */
+        font-size: 1rem;
+    }
+    
+    /* 5. Layout-Trick: Alles etwas nach oben schieben */
+    .card-stage {
+        /* Statt stur mittig, lieber etwas höher gewichtet */
+        justify-content: flex-start; 
+        padding-top: 1rem; /* Kleiner Abstand zum Header */
+    }
 }
